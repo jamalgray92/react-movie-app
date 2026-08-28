@@ -1,3 +1,6 @@
+import { useEffect, useMemo, useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { useMemo, useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import MovieDetails from "./MovieDetails";
@@ -12,7 +15,7 @@ function MovieCard({ movie }) {
 
  return (
   <Link className="movie-link" to={`/movie/${movie.id}`}>
-    <article className="movie-card">
+    <article className="movie-card" data-aos="fade-right">
       <img src={poster} alt={`${movie.title} poster`} />
 
       <div className="movie-info">
@@ -30,6 +33,12 @@ function MovieCard({ movie }) {
 );
 }
 function MovieSearchPage() {
+  useEffect(() => {
+  AOS.init({
+    duration: 800,
+    once: true,
+  });
+}, []);
   const [searchTerm, setSearchTerm] = useState("");
   const [movies, setMovies] = useState([]);
   const [sortOption, setSortOption] = useState("");
