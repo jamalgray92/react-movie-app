@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useMemo, useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import MovieDetails from "./MovieDetails";
 import "./App.css";
